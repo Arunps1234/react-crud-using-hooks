@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Data from './Data'
 import { Link } from 'react-router-dom'
 
@@ -14,6 +14,9 @@ const Home = () => {
                     <th>Name </th>
                     <th>Email  </th>
                     <th>Phone </th>
+                    <th>
+                        Actions
+                    </th>
                 </tr>
             </thead>
 
@@ -21,10 +24,17 @@ const Home = () => {
 {
     Data && Data.length>0 ? 
     Data.map((value)=>(
-<tr>
+<tr key={value.phone}>
     <td>{value.name}</td>
     <td>{value.email}</td>
     <td>{value.phone}</td>
+    <td>
+    <button className='btn btn-warning'>Edit</button>
+    &nbsp;
+    <button className='btn btn-danger'>Delete</button>
+
+    </td>
+
 
 </tr>
     )) : (  <span style={{position:'relative', left:'400px'}}>NO DATA FOUND </span> )
