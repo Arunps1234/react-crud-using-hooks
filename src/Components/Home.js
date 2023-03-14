@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
     console.log(Data)
+
+    const [datas, setdata] = useState(Data)
+
+    const DeleteAccount = (number)=>{
+
+ const finadata = datas.filter((vals)=>vals.id!==number)
+
+
+
+}
+
+    
     return(
         <>
     <div style={{margin:'15rem'}}>
@@ -22,8 +34,8 @@ const Home = () => {
 
 <tbody>
 {
-    Data && Data.length>0 ? 
-    Data.map((value)=>(
+    datas && datas.length>0 ? 
+   ( datas.map((value)=>(
 <tr key={value.phone}>
     <td>{value.name}</td>
     <td>{value.email}</td>
@@ -31,13 +43,13 @@ const Home = () => {
     <td>
     <button className='btn btn-warning'>Edit</button>
     &nbsp;
-    <button className='btn btn-danger'>Delete</button>
+    <button className='btn btn-danger' onClick={DeleteAccount(value.id)}>Delete</button>
 
     </td>
 
 
 </tr>
-    )) : (  <span style={{position:'relative', left:'400px'}}>NO DATA FOUND </span> )
+    )) ): ("NO DATA FOUND") 
 }
 
 
