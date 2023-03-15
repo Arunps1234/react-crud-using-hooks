@@ -8,6 +8,7 @@ const Create =()=>{
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("")
+    const [id, setId]=useState()
 
     // usenavigate
     const navigate =useNavigate();
@@ -24,9 +25,9 @@ const Create =()=>{
             phone:phone,
             id : v4()
 
-        
 
         })
+
         navigate("/")
 console.log(v4())
     }
@@ -37,7 +38,14 @@ console.log(v4())
             <form className= 'form-group' >
                 <div className='col-sm-6 col-offset-3'>
                     
-                    
+
+                <div>
+                    <label>ID :</label>
+                    <input type="text" placeholder='Enter name' className= 'form-control' value={id} onChange={e=>setId(e.target.value)}     disabled={true}/>
+                </div>
+
+
+
                     <div>
                     <label>Name :</label>
                     <input type="text" placeholder='Enter name' className= 'form-control' value={name} onChange={e=>setName(e.target.value)} required/>

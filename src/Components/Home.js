@@ -3,16 +3,17 @@ import Data from './Data'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
-    console.log(Data)
 
     const [datas, setdata] = useState(Data)
 
-    const DeleteAccount = (number)=>{
+    const DeleteAccount = (id)=>{
 
- const finadata = datas.filter((vals)=>vals.id!==number)
-
-
-
+ //const finadata = datas.filter((vals)=>vals.id!==number)
+console.log(id)
+const final = datas.filter(val=>{
+return  (  val.id!==id)
+    })
+setdata(final)
 }
 
     
@@ -43,7 +44,7 @@ const Home = () => {
     <td>
     <button className='btn btn-warning'>Edit</button>
     &nbsp;
-    <button className='btn btn-danger' onClick={DeleteAccount(value.id)}>Delete</button>
+    <button className='btn btn-danger' onClick={()=>DeleteAccount(value.id)}>Delete</button>
 
     </td>
 
