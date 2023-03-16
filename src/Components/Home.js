@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Data from './Data'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
@@ -14,6 +15,11 @@ const final = datas.filter(val=>{
 return  (  val.id!==id)
     })
 setdata(final)
+}
+
+const navigate = useNavigate ()
+const Edituser = (id) =>{
+navigate("/Edit/" +id)
 }
 
     
@@ -42,7 +48,7 @@ setdata(final)
     <td>{value.email}</td>
     <td>{value.phone}</td>
     <td>
-    <button className='btn btn-warning'>Edit</button>
+    <button className='btn btn-warning' onClick={()=>Edituser(value.id)}>Edit</button>
     &nbsp;
     <button className='btn btn-danger' onClick={()=>DeleteAccount(value.id)}>Delete</button>
 
